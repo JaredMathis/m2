@@ -4,7 +4,7 @@ export function ast_identifiers(ast) {
     ast_visit(ast, v => {
         let {node} = v;
         if (node.type && node.type === 'Identifier') {
-
+            result.push(node);
         }
     });
     return result;
