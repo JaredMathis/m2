@@ -1,6 +1,9 @@
 import {run} from './run.mjs'
 
-let add_result = await run('git add *');
-console.log(add_result)
-await run('git commit -m "' + new Date() + "\"");
-await run('git push');
+await run('git add *');
+try {
+    await run('git commit -m "' + new Date() + "\"");
+    await run('git push');
+} catch (e) {
+    console.log('Maybe there was nothing to commit');
+}
