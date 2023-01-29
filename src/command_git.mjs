@@ -1,2 +1,3 @@
 await import(`./command.mjs`);
-await import(`./git_acp.mjs`);
+let {git_acp} = await import(`./git_acp.mjs`);
+git_acp(argv.slice(2));
