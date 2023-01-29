@@ -12,6 +12,7 @@ export function ast_identifiers(ast) {
 
 
 function ast_identifier_is(node) {
-    return node.type && node.type === 'Identifier';
+    const node_type = 'Identifier';
+    return node.type && node.type === node_type;
 }
 
