@@ -4,5 +4,6 @@ import {log} from './log.mjs';
 export async function function_imports(function_name) {
     let ast = await function_ast_get(function_name);
     let imports_existing = ast_imports(ast);
-    log(imports_existing);
+    let identifiers_existing = ast_identifiers(ast);
+    log(identifiers_existing);
 }
