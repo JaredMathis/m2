@@ -1,3 +1,5 @@
-export function ast_identifiers() {
-    
+export function ast_identifiers(ast) {
+    visit(ast, node => {
+        
+    })
 }
