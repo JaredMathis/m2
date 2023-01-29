@@ -1,5 +1,4 @@
-import {list_is} from './list_is.mjs';
-import { visit } from './visit.mjs';
+import { ast_visit } from './ast_visit.mjs';
 export function ast_identifiers(ast) {
     const each =
         node => {
@@ -7,8 +6,4 @@ export function ast_identifiers(ast) {
     ast_visit(ast, each);
 }
 
-function ast_visit(ast, each) {
-    visit(ast,
-        node => list_is(node) || node.type,
-        each);
-}
+
