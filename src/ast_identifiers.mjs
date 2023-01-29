@@ -1,3 +1,4 @@
+import { ast_identifier_is } from './ast_identifier_is.mjs';
 import { ast_visit } from './ast_visit.mjs';
 export function ast_identifiers(ast) {
     let result = [];
@@ -11,8 +12,4 @@ export function ast_identifiers(ast) {
 }
 
 
-function ast_identifier_is(node) {
-    const node_type = 'Identifier';
-    return node.type && node.type === node_type;
-}
 
