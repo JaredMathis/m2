@@ -5,5 +5,5 @@ try {
     await run('git commit -m "' + new Date() + "\"");
     await run('git push');
 } catch (e) {
-    console.log('Maybe there was nothing to commit');
+    console.log('Git commit/push errored. Maybe there was nothing to commit');
 }
