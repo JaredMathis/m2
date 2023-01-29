@@ -4,7 +4,11 @@ export function ast_identifiers(ast) {
     const each =
         node => {
         };
-    visit(ast, 
+    ast_visit(ast, each);
+}
+
+function ast_visit(ast, each) {
+    visit(ast,
         node => list_is(node) || node.type,
-        each)
+        each);
 }
