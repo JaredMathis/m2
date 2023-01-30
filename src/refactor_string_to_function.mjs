@@ -1,7 +1,6 @@
 import { log } from './log.mjs';
 import { function_imports } from './function_imports.mjs';
 import { js_parse_expression } from './js_parse_expression.mjs';
-import { ast_node_type_is } from './ast_node_type_is.mjs';
 import { ast_visit } from './ast_visit.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { function_new_if_not_exists } from './function_new_if_not_exists.mjs';
@@ -11,6 +10,7 @@ import { arguments_assert } from './arguments_assert.mjs';
 import { string_is } from './string_is.mjs';
 import { properties_replace } from './properties_replace.mjs';
 import { js_parse_body } from './js_parse_body.mjs';
+import { ast_node_literal_is } from './ast_node_literal_is.mjs';
 export async function refactor_string_to_function(string_value, function_name) {
     arguments_assert(arguments, string_is, string_is);
     let f = await functions_all_get();
@@ -46,7 +46,4 @@ export async function refactor_string_to_function(string_value, function_name) {
 
 
 
-function ast_node_literal_is(node) {
-    return ast_node_type_is(node, 'Literal');
-}
 
