@@ -1,5 +1,5 @@
 import { package_transform } from './package_transform.mjs';
-import { error } from './error.mjs';
+import { todo } from './todo.mjs';
 export async function package_bump() {
     await package_transform(p => {
         if (!p.version) {
@@ -10,6 +10,4 @@ export async function package_bump() {
     });
 }
 
-function todo() {
-    error('TODO');
-}
+
