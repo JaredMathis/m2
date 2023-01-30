@@ -1,9 +1,11 @@
 ﻿# m00
 
-TODO
+TODO: items to do
 
 new folder
 new file
+
+autorefactor - if there's a function that has the same code as some other file, then that function is called instead of the code
 
 error if calling function that doesn't exist
 
