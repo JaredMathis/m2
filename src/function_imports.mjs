@@ -1,7 +1,7 @@
 import { ast_identifiers } from './ast_identifiers.mjs';
 import { ast_imports } from './ast_imports.mjs';
-import {function_ast_get} from './function_ast_get.mjs';
-import {directory_read} from './directory_read.mjs';
+import { function_ast_get } from './function_ast_get.mjs';
+import { directory_read } from './directory_read.mjs';
 import { directory_root_get } from './directory_root_get.mjs';
 import { function_path_to_name } from './function_path_to_name.mjs';
 import { list_intersection } from './list_intersection.mjs';
@@ -17,8 +17,10 @@ export async function function_imports(function_name) {
     let without_me = list_difference(function_name_identifiers, [function_name]);
     let missing = list_difference(without_me, imports_existing);
     await function_ast_set(function_name, ast);
-    
     if (false) {
-        log({imports_existing,missing});
+        log({
+            imports_existing,
+            missing
+        });
     }
 }
