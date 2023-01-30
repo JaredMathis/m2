@@ -3,6 +3,7 @@ import { file_exists } from './file_exists.mjs';
 import { path_join } from './path_join.mjs';
 import { undefined_is } from './undefined_is.mjs';
 import { assert } from './assert.mjs';
+import { for_each_async } from './for_each_async.mjs';
 export async function function_path_get(function_name) {
     let result;
     await for_each_async(directory_root_get(), async directory_path => {
