@@ -21,19 +21,24 @@ export async function refactor_string_to_function(string_value, function_name) {
         if (fn == function_name) {
             return;
         }
+        let changed = false;
         await function_ast_transform(fn, args => {
             let {ast} = args;
             ast_visit(ast, v => {
                 let {node} = v;
                 if (ast_node_type_is(node, 'Literal')) {
                     if (node.value === string_value) {
-                        console.log(fn, node);
                         const source_code = `${ function_name }()`;
                         let e = js_parse_expression(source_code);
-                        console.log(e);
+                        properties_delete(node);
+                        merge(node, e);
+                        changed = true;
                     }
                 }
             });
         });
+        if (changed) {
+            
+        }
     });
 }
