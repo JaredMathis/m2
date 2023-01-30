@@ -50,5 +50,3 @@ export async function function_imports(function_name) {
         list_concat_front(ast.body, parsed.body);
     });
 }
-
-
