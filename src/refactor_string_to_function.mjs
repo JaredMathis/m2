@@ -30,7 +30,7 @@ export async function refactor_string_to_function(string_value, function_name) {
                         console.log(fn, node);
                         const source_code = `${ function_name }()`;
                         let e = js_parse_expression(source_code);
-                        console.log(expression);
+                        console.log(e);
                     }
                 }
             });
