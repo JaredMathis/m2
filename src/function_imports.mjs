@@ -15,7 +15,10 @@ export async function function_imports(function_name) {
         let function_name_identifiers = list_intersection(identifiers_existing, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
-        console.log(missing);
+        console.log({
+            missing,
+            identifiers_existing
+        });
     });
     if (false) {
         log({});
