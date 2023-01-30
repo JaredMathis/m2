@@ -20,7 +20,7 @@ export async function function_imports(function_name) {
         let identifiers_existing_counts = ast_identifiers(ast);
         let identifiers_existing = [];
         for_each(identifiers_existing_counts, (count, identifier) => {
-            if (count > 1) {
+            if (count >= 2) {
                 list_add(identifiers_existing, identifier);
             }
         });
