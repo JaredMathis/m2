@@ -10,11 +10,7 @@ export async function function_identifier_rename(function_name, identifier_befor
         string_is,
         string_is
     ];
-    assert(arguments.length === types.length);
-    for_each(types, (type, index) => {
-        let argument = arguments[index];
-        assert(type(argument));
-    });
+    arguments_assert(arguments, types);
     await function_ast_transform(function_name, async args => {
         let {ast} = args;
         ast_visit(ast, v => {
@@ -25,5 +21,15 @@ export async function function_identifier_rename(function_name, identifier_befor
                 }
             }
         });
+    });
+}
+
+function arguments_assert(_arguments) {
+    assert(!undefined_is(_arguments));
+    let types = arguments.slice(1);
+    assert(_arguments.length === types.length);
+    for_each(types, (type, index) => {
+        let argument = _arguments[index];
+        assert(type(argument));
     });
 }
