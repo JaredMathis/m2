@@ -13,9 +13,6 @@ export async function function_path_find(function_name) {
             result = file_path;
         }
     });
-    if (undefined_is(result)) {
-        result = function_path_get('./src', function_name);
-    }
     return result;
 }
 
