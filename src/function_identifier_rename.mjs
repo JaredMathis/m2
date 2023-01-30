@@ -6,12 +6,7 @@ import { ast_identifier_is } from './ast_identifier_is.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { for_each } from './for_each.mjs';
 export async function function_identifier_rename(function_name, identifier_before, identifier_after) {
-    let types = [
-        string_is,
-        string_is,
-        string_is
-    ];
-    arguments_assert(arguments, types);
+    arguments_assert(arguments, string_is, string_is, string_is);
     await function_ast_transform(function_name, async args => {
         let {ast} = args;
         ast_visit(ast, v => {
