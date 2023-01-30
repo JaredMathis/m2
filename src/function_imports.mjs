@@ -1,9 +1,6 @@
 import { log } from './log.mjs';
 import { ast_identifiers } from './ast_identifiers.mjs';
 import { ast_imports } from './ast_imports.mjs';
-import { directory_read } from './directory_read.mjs';
-import { directory_root_get } from './directory_root_get.mjs';
-import { function_path_to_name } from './function_path_to_name.mjs';
 import { list_intersection } from './list_intersection.mjs';
 import { list_difference } from './list_difference.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
@@ -14,6 +11,7 @@ import { list_remove } from './list_remove.mjs';
 import { list_add } from './list_add.mjs';
 import { ast_imports_for_each } from './ast_imports_for_each.mjs';
 import { keys } from './keys.mjs';
+import { functions_all_get } from './functions_all_get.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
@@ -53,8 +51,4 @@ export async function function_imports(function_name) {
     });
 }
 
-async function functions_all_get() {
-    let files = await directory_read(directory_root_get());
-    let function_names = files.map(f => function_path_to_name(f));
-    return function_names;
-}
+
