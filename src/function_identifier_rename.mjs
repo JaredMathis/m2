@@ -1,5 +1,4 @@
 import { ast_visit } from './ast_visit.mjs';
-import { log } from './log.mjs';
 import { ast_identifier_is } from './ast_identifier_is.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 export async function function_identifier_rename(function_name, identifier_before, identifier_after) {
