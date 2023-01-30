@@ -1,10 +1,8 @@
-import { undefined_is } from './undefined_is.mjs';
 import { string_is } from './string_is.mjs';
-import { assert } from './assert.mjs';
 import { ast_visit } from './ast_visit.mjs';
 import { ast_identifier_is } from './ast_identifier_is.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
-import { for_each } from './for_each.mjs';
+import { arguments_assert } from './arguments_assert.mjs';
 export async function function_identifier_rename(function_name, identifier_before, identifier_after) {
     arguments_assert(arguments, string_is, string_is, string_is);
     await function_ast_transform(function_name, async args => {
@@ -17,14 +15,5 @@ export async function function_identifier_rename(function_name, identifier_befor
                 }
             }
         });
-    });
-}
-function arguments_assert(_arguments) {
-    assert(!undefined_is(_arguments));
-    let types = arguments.slice(1);
-    assert(_arguments.length === types.length);
-    for_each(types, (type, index) => {
-        let argument = _arguments[index];
-        assert(type(argument));
     });
 }
