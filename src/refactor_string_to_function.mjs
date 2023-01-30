@@ -27,6 +27,7 @@ export async function refactor_string_to_function(string_value, function_name) {
                 if (ast_node_type_is(node, 'Literal')) {
                     if (node.value === string_value) {
                         console.log(fn, node);
+                        console.log(js_parse(`${ function_name }()`));
                     }
                 }
             });
