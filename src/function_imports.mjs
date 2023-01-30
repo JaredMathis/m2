@@ -1,4 +1,4 @@
-import log from './log.mjs';
+import { log } from './log.mjs';
 import { ast_identifiers } from './ast_identifiers.mjs';
 import { ast_imports } from './ast_imports.mjs';
 import { directory_read } from './directory_read.mjs';
@@ -19,7 +19,7 @@ export async function function_imports(function_name) {
         let function_name_identifiers = list_intersection(identifiers_existing, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
-        let missing_imports = missing.map(m => `import ${ m } from './${ m }.mjs'`).join(';');
+        let missing_imports = missing.map(m => `import { ${ m } } from './${ m }.mjs'`).join(';');
         let parsed = js_parse(missing_imports);
         ast.body = parsed.body.concat(ast.body);
     });
