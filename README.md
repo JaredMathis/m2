@@ -5,6 +5,8 @@ TODO
 new folder
 new file
 
+error if calling function that doesn't exist
+
 fuction aliases for example each is shorthand for for_each
 
 rename file/function
