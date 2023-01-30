@@ -30,10 +30,10 @@ export async function refactor_string_to_function(string_value, function_name) {
                 let {node} = v;
                 if (ast_node_type_is(node, 'Literal')) {
                     if (node.value === string_value) {
-                        const source_code = `${ function_name }()`;
-                        let e = js_parse_expression(source_code);
+                        let e = js_parse_expression(`${ function_name }()`);
                         properties_delete(node);
                         merge(node, e);
+                        console.log({ e });
                         changed = true;
                     }
                 }
