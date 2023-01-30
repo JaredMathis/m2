@@ -13,12 +13,13 @@ import { for_each } from './for_each.mjs';
 import { list_remove } from './list_remove.mjs';
 import { list_add } from './list_add.mjs';
 import { ast_imports_for_each } from './ast_imports_for_each.mjs';
+import { keys } from './keys.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
         let imports_existing = ast_imports(ast);
         let identifiers_existing_counts = ast_identifiers(ast);
-        let identifiers_existing_all = Object.keys(identifiers_existing_counts);
+        let identifiers_existing_all = keys(identifiers_existing_counts);
         let identifiers_existing = [];
         for_each(identifiers_existing_counts, (count, identifier) => {
             if (count >= 3) {
