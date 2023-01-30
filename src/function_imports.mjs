@@ -7,7 +7,8 @@ import { list_intersection } from './list_intersection.mjs';
 import { list_difference } from './list_difference.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 export async function function_imports(function_name) {
-    await function_ast_transform(function_name, async function transform(ast) {
+    await function_ast_transform(function_name, async function transform(args) {
+        let {ast} = args;
         let files = await directory_read(directory_root_get());
         let imports_existing = ast_imports(ast);
         let identifiers_existing = ast_identifiers(ast);
