@@ -8,6 +8,7 @@ import { list_intersection } from './list_intersection.mjs';
 import { list_difference } from './list_difference.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
+import { list_concat_front } from './list_concat_front.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
@@ -20,7 +21,7 @@ export async function function_imports(function_name) {
         let missing = list_difference(without_me, imports_existing);
         let missing_imports = missing.map(m => `import { ${ m } } from './${ m }.mjs'`).join(';');
         let parsed = js_parse(missing_imports);
-        ast.body = parsed.body.concat(ast.body);
+        list_concat_front(ast.body, parsed.body);
     });
     if (false) {
         log({});
