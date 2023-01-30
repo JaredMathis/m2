@@ -9,11 +9,20 @@ import { list_difference } from './list_difference.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
 import { list_concat_front } from './list_concat_front.mjs';
+import { for_each } from './for_each.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
         let imports_existing = ast_imports(ast);
         let identifiers_existing = ast_identifiers(ast);
+        let extras = list_difference(imports_existing, identifiers_existing);
+        let removals = [];
+        ast_imports_for_each(ast, import_statement => {
+            if (extras.includes(import_statement.name)) {
+                removals.push(import_statement.node)
+            }
+        });
+        for_each(removals, r => list_remove(ast.body, r));
         let files = await directory_read(directory_root_get());
         let function_names = files.map(f => function_path_to_name(f));
         let function_name_identifiers = list_intersection(identifiers_existing, function_names);
