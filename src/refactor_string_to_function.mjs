@@ -1,3 +1,4 @@
+import { log } from './log.mjs';
 import { function_imports } from './function_imports.mjs';
 import { properties_delete } from './properties_delete.mjs';
 import { merge } from './merge.mjs';
@@ -28,13 +29,15 @@ export async function refactor_string_to_function(string_value, function_name) {
             let {ast} = args;
             ast_visit(ast, v => {
                 let {node} = v;
-                if (ast_node_type_is(node, 'Literal')) {
-                    if (node.value === string_value) {
+                if (node.value === string_value) {
+                    if (ast_node_type_is(node, 'Literal')) {
                         let e = js_parse_expression(`${ function_name }()`);
                         properties_delete(node);
                         merge(node, e);
-                        console.log({ e });
                         changed = true;
+                    } else {
+                        console.log('here');
+                        console.log({ node });
                     }
                 }
             });
