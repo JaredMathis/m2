@@ -16,6 +16,7 @@ export async function function_imports(function_name) {
     let without_me = list_difference(function_name_identifiers, [function_name]);
     let missing = list_difference(without_me, imports_existing);
     if (false) {
+        await function_ast_set(function_name, ast);
         log({imports_existing,missing});
     }
 }

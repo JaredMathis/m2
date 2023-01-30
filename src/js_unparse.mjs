@@ -1,3 +1,4 @@
-export function js_unparse() {
-    
+import escodegen from 'escodegen';
+export function js_unparse(ast) {
+    escodegen.generate(ast);
 }
