@@ -10,6 +10,7 @@ export async function function_imports(function_name) {
     let identifiers_existing = ast_identifiers(ast);
 
     let files = await directory_read(directory_root_get());
+    files.map(f => function_path_to_name(f));
 
     log(identifiers_existing);
 }
