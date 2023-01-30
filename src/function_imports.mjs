@@ -18,13 +18,14 @@ export async function function_imports(function_name) {
         let {ast} = args;
         let imports_existing = ast_imports(ast);
         let identifiers_existing_counts = ast_identifiers(ast);
+        let identifiers_existing_all = Object.keys(identifiers_existing_counts);
         let identifiers_existing = [];
         for_each(identifiers_existing_counts, (count, identifier) => {
             if (count >= 2) {
                 list_add(identifiers_existing, identifier);
             }
         });
-        let extras = list_difference(imports_existing, identifiers_existing);
+        let extras = list_difference(imports_existing, identifiers_existing_all);
         let removals = [];
         ast_imports_for_each(ast, import_statement => {
             if (extras.includes(import_statement.name)) {
