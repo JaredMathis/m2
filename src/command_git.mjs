@@ -1,5 +1,7 @@
+import { command_run } from "./command_run.mjs";
+
 async function command_git() {
-    await import(`./command.mjs`);
+    await command_run();
     let {git_acp} = await import(`./git_acp.mjs`);
     git_acp(process.argv.slice(2));
 }
