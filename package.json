@@ -4,5 +4,6 @@
     "escodegen": "^2.0.0",
     "recursive-readdir": "^2.2.3"
   },
-  "name": "m00"
+  "name": "m00",
+  "version": "0.0.0"
 }
