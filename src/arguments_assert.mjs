@@ -4,7 +4,7 @@ import { for_each } from './for_each.mjs';
 
 export function arguments_assert(_arguments) {
     assert(!undefined_is(_arguments));
-    let types = arguments.slice(1);
+    let types = Array.from(arguments).slice(1);
     assert(_arguments.length === types.length);
     for_each(types, (type, index) => {
         let argument = _arguments[index];

@@ -7,8 +7,8 @@ export async function function_identifier_rename(function_name, identifier_befor
     arguments_assert(arguments, string_is, string_is, string_is);
     await function_ast_transform(function_name, async args => {
         let {ast} = args;
-        ast_visit(ast, v => {
-            let {node} = v;
+        ast_visit(ast, vv => {
+            let {node} = vv;
             if (ast_identifier_is(node)) {
                 if (node.name === identifier_before) {
                     node.name = identifier_after;
