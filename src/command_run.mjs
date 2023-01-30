@@ -5,9 +5,10 @@ export async function command_run() {
     let function_name = process.argv[2];
     let function_arguments = process.argv.slice(3);
     let function_result = await function_run(function_name, function_arguments);
-    log({
+    const result = {
         function_name,
         function_arguments,
         function_result
-    });
+    };
+    log(result);
 }
