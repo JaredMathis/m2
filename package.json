@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "acorn": "^8.8.2"
+    "acorn": "^8.8.2",
+    "recursive-readdir": "^2.2.3"
   }
 }
