@@ -10,6 +10,8 @@ import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
 import { list_concat_front } from './list_concat_front.mjs';
 import { for_each } from './for_each.mjs';
+import { list_remove } from './list_remove.mjs';
+import { ast_imports_for_each } from './ast_imports_for_each.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
@@ -19,7 +21,7 @@ export async function function_imports(function_name) {
         let removals = [];
         ast_imports_for_each(ast, import_statement => {
             if (extras.includes(import_statement.name)) {
-                removals.push(import_statement.node)
+                removals.push(import_statement.node);
             }
         });
         for_each(removals, r => list_remove(ast.body, r));
