@@ -1,6 +1,6 @@
 import { string_is } from './string_is.mjs';
 import { ast_visit } from './ast_visit.mjs';
-import { ast_node_identifier_is } from './ast_identifier_is.mjs';
+import { ast_node_identifier_is } from './ast_node_identifier_is.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { arguments_assert } from './arguments_assert.mjs';
 export async function function_identifier_rename(function_name, identifier_before, identifier_after) {
