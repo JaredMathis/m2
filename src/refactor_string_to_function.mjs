@@ -1,3 +1,4 @@
+import { function_imports } from './function_imports.mjs';
 import { properties_delete } from './properties_delete.mjs';
 import { merge } from './merge.mjs';
 import { js_parse_expression } from './js_parse_expression.mjs';
@@ -39,6 +40,7 @@ export async function refactor_string_to_function(string_value, function_name) {
             });
         });
         if (changed) {
+            await function_imports(fn);
         }
     });
 }
