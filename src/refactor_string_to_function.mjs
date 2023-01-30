@@ -29,7 +29,8 @@ export async function refactor_string_to_function(string_value, function_name) {
                         console.log(fn, node);
                         const parsed = js_parse(`${ function_name }()`);
                         let parsed_body = parsed.body;
-                        console.log(parsed_body);
+                        let {expression} = parsed_body;
+                        console.log(expression);
                     }
                 }
             });
