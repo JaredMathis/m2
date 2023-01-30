@@ -9,8 +9,6 @@ export async function functions_all_get() {
         let files = await directory_read(directory_path);
         let function_names = files.map(f => function_path_to_name(f));
         list_add_all(result, function_names);
-    })
+    });
     return result;
 }
-
-

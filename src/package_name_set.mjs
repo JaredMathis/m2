@@ -5,6 +5,3 @@ export async function package_name_set(name) {
         merge(p, { name });
     });
 }
-
-
-
