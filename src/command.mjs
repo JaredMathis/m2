@@ -1,6 +1,11 @@
 let function_name = process.argv[2];
 let function_arguments = process.argv.slice(3);
-let imported = await import(`./${function_name}.mjs`);
-let _function = imported[function_name];
-let result = await _function(...function_arguments);
+let result = await function_run();
 console.log({function_name, function_arguments, result})
+
+async function function_run() {
+    let imported = await import(`./${function_name}.mjs`);
+    let _function = imported[function_name];
+    let result = await _function(...function_arguments);
+    return result;
+}
