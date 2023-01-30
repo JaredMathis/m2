@@ -29,10 +29,8 @@ export async function refactor_string_to_function(string_value, function_name) {
             let {ast} = args;
             ast_visit(ast, v => {
                 let {node} = v;
-                if (node.value === string_value) {
-                    console.log('here');
-                    console.log({ node });
-                    if (ast_node_type_is(node, 'Literal')) {
+                if (ast_node_type_is(node, 'Literal')) {
+                    if (node.value === string_value) {
                         let e = js_parse_expression(`${ function_name }()`);
                         properties_delete(node);
                         merge(node, e);
