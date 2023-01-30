@@ -9,7 +9,7 @@ export async function function_imports(function_name) {
     let imports_existing = ast_imports(ast);
     let identifiers_existing = ast_identifiers(ast);
 
-    directory_read(directory_root_get());
+    let files = await directory_read(directory_root_get());
 
     log(identifiers_existing);
 }
