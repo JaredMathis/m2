@@ -5,7 +5,11 @@ export async function package_bump() {
         if (!p.version) {
             p.version = '0.0.0';
         } else {
-            error('TODO');
+            todo();
         }
     });
+}
+
+function todo() {
+    error('TODO');
 }
