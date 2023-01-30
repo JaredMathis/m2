@@ -7,7 +7,7 @@ export function list_unique(list) {
         if (result.includes(element)) {
             return;
         }
-        list_add(list, element)
+        list_add(result, element)
     })
     return result;
 }
