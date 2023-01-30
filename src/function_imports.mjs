@@ -13,5 +13,7 @@ export async function function_imports(function_name) {
     let files = await directory_read(directory_root_get());
     let function_names = files.map(f => function_path_to_name(f));
 
+    let function_name_identifiers = list_intersection(identifiers_existing, function_names);
+
     log(function_names);
 }
