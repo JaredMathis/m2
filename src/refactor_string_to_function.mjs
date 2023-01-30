@@ -1,7 +1,5 @@
 import { log } from './log.mjs';
 import { function_imports } from './function_imports.mjs';
-import { properties_delete } from './properties_delete.mjs';
-import { merge } from './merge.mjs';
 import { js_parse_expression } from './js_parse_expression.mjs';
 import { ast_node_type_is } from './ast_node_type_is.mjs';
 import { ast_visit } from './ast_visit.mjs';
@@ -12,6 +10,7 @@ import { functions_all_get } from './functions_all_get.mjs';
 import { for_each_async } from './for_each_async.mjs';
 import { arguments_assert } from './arguments_assert.mjs';
 import { string_is } from './string_is.mjs';
+import { properties_replace } from './properties_replace.mjs';
 export async function refactor_string_to_function(string_value, function_name) {
     arguments_assert(arguments, string_is, string_is);
     let f = await functions_all_get();
@@ -44,7 +43,4 @@ export async function refactor_string_to_function(string_value, function_name) {
     });
 }
 
-function properties_replace(node, e) {
-    properties_delete(node);
-    merge(node, e);
-}
+
