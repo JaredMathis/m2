@@ -9,6 +9,7 @@ export function ast_import_function_is(b) {
         name = first.imported.name ;
         if (name === first.local.name) {
             success = true;
+            console.log(name)
         }
     }
     return {success, name};

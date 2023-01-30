@@ -19,5 +19,4 @@ export async function function_imports(function_name) {
 
     let missing = list_difference(function_name_identifiers, imports_existing);
 
-    log({imports_existing,missing});
 }
