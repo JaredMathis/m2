@@ -3,7 +3,7 @@ let function_arguments = process.argv.slice(3);
 let result = await function_run(function_name, function_arguments);
 console.log({function_name, function_arguments, result})
 
-async function function_run() {
+async function function_run(function_name, function_arguments) {
     let imported = await import(`./${function_name}.mjs`);
     let _function = imported[function_name];
     let result = await _function(...function_arguments);
