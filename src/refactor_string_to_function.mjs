@@ -14,12 +14,7 @@ import { ast_node_literal_is } from './ast_node_literal_is.mjs';
 export async function refactor_string_to_function(string_value, function_name) {
     arguments_assert(arguments, string_is, string_is);
     let f = await functions_all_get();
-    await function_new_if_not_exists(function_name);
-    await function_ast_transform(function_name, args => {
-        let {ast} = args;
-        const source_code = `export function ${function_name}() { return \`${string_value}\` }`;
-        ast.body = js_parse_body(source_code);
-    });
+    await function_constant_string(function_name, string_value);
     await for_each_async(f, async fn => {
         if (fn == function_name) {
             return;
@@ -46,4 +41,13 @@ export async function refactor_string_to_function(string_value, function_name) {
 
 
 
+
+async function function_constant_string(function_name, string_value) {
+    await function_new_if_not_exists(function_name);
+    await function_ast_transform(function_name, args => {
+        let { ast } = args;
+        const source_code = `export function ${function_name}() { return \`${string_value}\` }`;
+        ast.body = js_parse_body(source_code);
+    });
+}
 
