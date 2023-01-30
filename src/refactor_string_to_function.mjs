@@ -17,7 +17,8 @@ export async function refactor_string_to_function(string_value, function_name) {
     await function_new_if_not_exists(function_name);
     await function_ast_transform(function_name, args => {
         let {ast} = args;
-        ast.body = js_parse(`export function ${ function_name }() { return \`${ string_value }\` }`).body;
+        const source_code = `export function ${function_name}() { return \`${string_value}\` }`;
+        ast.body = js_parse(source_code).body;
     });
     await for_each_async(f, async fn => {
         if (fn == function_name) {
