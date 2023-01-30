@@ -1,4 +1,3 @@
-import { for_each_key } from './for_each_key.mjs';
 import { ast_identifiers } from './ast_identifiers.mjs';
 import { ast_imports } from './ast_imports.mjs';
 import { directory_read } from './directory_read.mjs';
@@ -21,7 +20,7 @@ export async function function_imports(function_name) {
         let identifiers_existing_all = Object.keys(identifiers_existing_counts);
         let identifiers_existing = [];
         for_each(identifiers_existing_counts, (count, identifier) => {
-            if (count >= 2) {
+            if (count >= 3) {
                 list_add(identifiers_existing, identifier);
             }
         });
