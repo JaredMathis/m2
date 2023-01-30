@@ -12,9 +12,9 @@ import { list_concat_front } from './list_concat_front.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
-        let files = await directory_read(directory_root_get());
         let imports_existing = ast_imports(ast);
         let identifiers_existing = ast_identifiers(ast);
+        let files = await directory_read(directory_root_get());
         let function_names = files.map(f => function_path_to_name(f));
         let function_name_identifiers = list_intersection(identifiers_existing, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
@@ -23,7 +23,4 @@ export async function function_imports(function_name) {
         let parsed = js_parse(missing_imports);
         list_concat_front(ast.body, parsed.body);
     });
-    if (false) {
-        log({});
-    }
 }
