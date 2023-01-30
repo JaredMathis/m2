@@ -16,5 +16,7 @@ export async function function_imports(function_name) {
 
     let function_name_identifiers = list_intersection(identifiers_existing, function_names);
 
+    let missing = list_difference(function_name_identifiers, imports_existing);
+
     log(function_name_identifiers);
 }
