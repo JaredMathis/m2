@@ -16,6 +16,11 @@ export async function function_path_get(function_name) {
             result = file_path;
         }
     })
-    assert(!undefined_is(result))
+    if (undefined_is(result)) {
+        result = path_join([
+            './src',
+            `${ function_name }.mjs`
+        ]);
+    }
     return result;
 }
