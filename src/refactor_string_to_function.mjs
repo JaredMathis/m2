@@ -32,8 +32,7 @@ export async function refactor_string_to_function(string_value, function_name) {
                 if (ast_node_type_is(node, 'Literal')) {
                     if (node.value === string_value) {
                         let e = js_parse_expression(`${ function_name }()`);
-                        properties_delete(node);
-                        merge(node, e);
+                        properties_replace(node, e);
                         changed = true;
                     }
                 }
@@ -43,4 +42,9 @@ export async function refactor_string_to_function(string_value, function_name) {
             await function_imports(fn);
         }
     });
+}
+
+function properties_replace(node, e) {
+    properties_delete(node);
+    merge(node, e);
 }
