@@ -1,7 +1,6 @@
 import { undefined_is } from './undefined_is.mjs';
 import { assert } from './assert.mjs';
 import { for_each } from './for_each.mjs';
-
 export function arguments_assert(_arguments) {
     assert(!undefined_is(_arguments));
     let types = Array.from(arguments).slice(1);
