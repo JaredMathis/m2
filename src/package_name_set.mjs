@@ -5,7 +5,11 @@ export async function package_name_set(name) {
     const transform = p => {
         merge(p, { name });
     };
-    await file_json_transform(package_path_get(), transform);
+    await package_transform(transform);
 }
 
+
+function package_transform(transform) {
+    return file_json_transform(package_path_get(), transform);
+}
 
