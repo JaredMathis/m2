@@ -1,5 +1,4 @@
-import { ast_imports_for_each } from "./ast_imports_for_each.mjs";
-
+import { ast_imports_for_each } from './ast_imports_for_each.mjs';
 export function ast_imports(ast) {
     let result = [];
     ast_imports_for_each(ast, for_each_import_function);
@@ -8,6 +7,3 @@ export function ast_imports(ast) {
     }
     return result;
 }
-
-
-

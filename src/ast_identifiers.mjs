@@ -13,5 +13,3 @@ export function ast_identifiers(ast) {
     });
     return counts;
 }
-
-
