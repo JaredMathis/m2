@@ -25,7 +25,9 @@ export async function refactor_string_to_function(string_value, function_name) {
             ast_visit(ast, v => {
                 let {node} = v;
                 if (ast_node_type_is(node, 'Literal')) {
-                    console.log(node);
+                    if (node.value === string_value) {
+                        console.log(fn, node);
+                    }
                 }
             });
         });

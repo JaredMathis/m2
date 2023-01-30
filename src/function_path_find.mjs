@@ -15,5 +15,3 @@ export async function function_path_find(function_name) {
     });
     return result;
 }
-
-
