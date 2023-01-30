@@ -1,3 +1,3 @@
-export function list_add() {
-    
+export function list_add(list, element) {
+    list.push(element);
 }

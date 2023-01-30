@@ -1,12 +1,13 @@
 import { for_each } from "./for_each.mjs";
+import { list_add } from "./list_add.mjs";
 
 export function list_unique(list) {
     let result = [];
 
-    for_each(list, a => {
-        if (result.includes(a)) {
+    for_each(list, element => {
+        if (result.includes(element)) {
             return;
         }
-        result.push(a);
+        list_add(list, element)
     })
 }
