@@ -8,8 +8,8 @@ export async function function_identifier_rename(function_name, identifier_befor
         ast_visit(ast, v => {
             let {node} = v;
             if (ast_identifier_is(node)) {
+                log(node);
                 if (node.name === identifier_before) {
-                    log(node);
                 }
             }
         });
