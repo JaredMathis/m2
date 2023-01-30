@@ -1,3 +1,3 @@
-export function m00_init() {
+export async function m00_init() {
     
 }
