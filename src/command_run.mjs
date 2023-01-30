@@ -11,4 +11,5 @@ export async function command_run() {
         function_result
     };
     log(result);
+    return result;
 }
