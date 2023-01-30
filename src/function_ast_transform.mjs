@@ -1,3 +1,3 @@
-export function function_ast_transform() {
+export function function_ast_transform(function_name, transform) {
     
 }
