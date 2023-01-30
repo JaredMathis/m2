@@ -5,9 +5,16 @@ export async function package_bump() {
         if (!p.version) {
             p.version = '0.0.0';
         } else {
-            todo();
+            let parts = p.version.split('.');
+            assert(parts.length === 3);
+            let last = parts.pop();
+            let last_number = integer_to(last);
         }
     });
 }
 
+
+function integer_to(last) {
+    return parseInt(last, 10);
+}
 
