@@ -32,6 +32,7 @@ export async function function_imports(function_name) {
             }
         });
         console.log({
+            identifiers_existing,
             extras,
             removals
         });
