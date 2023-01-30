@@ -1,6 +1,7 @@
+import { properties_delete } from './properties_delete.mjs';
+import { merge } from './merge.mjs';
 import { js_parse_expression } from './js_parse_expression.mjs';
 import { ast_node_type_is } from './ast_node_type_is.mjs';
-import { log } from './log.mjs';
 import { ast_visit } from './ast_visit.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
@@ -38,7 +39,6 @@ export async function refactor_string_to_function(string_value, function_name) {
             });
         });
         if (changed) {
-            
         }
     });
 }
