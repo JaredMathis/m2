@@ -1,3 +1,4 @@
+import { integer_to } from './integer_to';
 import { package_transform } from './package_transform.mjs';
 import { todo } from './todo.mjs';
 export async function package_bump() {
@@ -14,7 +15,4 @@ export async function package_bump() {
 }
 
 
-function integer_to(last) {
-    return parseInt(last, 10);
-}
 
