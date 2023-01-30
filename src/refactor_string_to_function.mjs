@@ -29,7 +29,7 @@ export async function refactor_string_to_function(string_value, function_name) {
             let {ast} = args;
             ast_visit(ast, v => {
                 let {node} = v;
-                if (ast_node_type_is(node, 'Literal')) {
+                if (ast_node_literal_is(node)) {
                     if (node.value === string_value) {
                         let e = js_parse_expression(`${ function_name }()`);
                         properties_replace(node, e);
@@ -45,4 +45,8 @@ export async function refactor_string_to_function(string_value, function_name) {
 }
 
 
+
+function ast_node_literal_is(node) {
+    return ast_node_type_is(node, 'Literal');
+}
 
