@@ -1,4 +1,4 @@
-import { function_path_find } from './function_path_get.mjs';
+import { function_path_find } from './function_path_find.mjs';
 import { js_unparse } from './js_unparse.mjs';
 import { file_write } from './file_write.mjs';
 export async function function_ast_set(function_name, ast) {
