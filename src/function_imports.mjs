@@ -25,7 +25,7 @@ export async function function_imports(function_name) {
                 list_add(identifiers_existing, identifier);
             }
         });
-        let extras = list_difference(imports_existing, identifiers_existing_all);
+        let extras = list_difference(imports_existing, identifiers_existing);
         let removals = [];
         ast_imports_for_each(ast, import_statement => {
             if (extras.includes(import_statement.name)) {
