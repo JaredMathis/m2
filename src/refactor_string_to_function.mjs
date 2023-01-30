@@ -1,3 +1,4 @@
+import { js_parse_expression } from './js_parse_expression.mjs';
 import { ast_node_type_is } from './ast_node_type_is.mjs';
 import { log } from './log.mjs';
 import { ast_visit } from './ast_visit.mjs';
@@ -27,10 +28,8 @@ export async function refactor_string_to_function(string_value, function_name) {
                 if (ast_node_type_is(node, 'Literal')) {
                     if (node.value === string_value) {
                         console.log(fn, node);
-                        const source_code = `${function_name}()`;
-                        const parsed = js_parse(source_code);
-                        let parsed_body = parsed.body;
-                        let {expression} = parsed_body;
+                        const source_code = `${ function_name }()`;
+                        let e = js_parse_expression(source_code);
                         console.log(expression);
                     }
                 }
