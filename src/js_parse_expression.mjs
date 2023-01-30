@@ -5,6 +5,7 @@ export function js_parse_expression(source_code) {
     arguments_assert(arguments, string_is);
     const parsed = js_parse(source_code);
     let parsed_body = parsed.body;
-    let {expression} = parsed_body;
+    let first = parsed_body[0];
+    let {expression} = first;
     return expression;
 }
