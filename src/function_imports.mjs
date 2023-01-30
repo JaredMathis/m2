@@ -24,7 +24,10 @@ export async function function_imports(function_name) {
                 removals.push(import_statement.node);
             }
         });
-        console.log(removals);
+        console.log({
+            extras,
+            removals
+        });
         for_each(removals, r => list_remove(ast.body, r));
         let files = await directory_read(directory_root_get());
         let function_names = files.map(f => function_path_to_name(f));
