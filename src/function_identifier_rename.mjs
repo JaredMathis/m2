@@ -1,3 +1,4 @@
+import { undefined_is } from './undefined_is.mjs';
 import { string_is } from './string_is.mjs';
 import { assert } from './assert.mjs';
 import { ast_visit } from './ast_visit.mjs';
@@ -23,7 +24,6 @@ export async function function_identifier_rename(function_name, identifier_befor
         });
     });
 }
-
 function arguments_assert(_arguments) {
     assert(!undefined_is(_arguments));
     let types = arguments.slice(1);
