@@ -1,3 +1,4 @@
+import { log } from './log.mjs';
 import { ast_identifiers } from './ast_identifiers.mjs';
 import { ast_imports } from './ast_imports.mjs';
 import { directory_read } from './directory_read.mjs';
@@ -31,17 +32,19 @@ export async function function_imports(function_name) {
                 removals.push(import_statement.node);
             }
         });
-        console.log({
-            identifiers_existing_counts,
-            identifiers_existing,
-            imports_existing,
-            extras,
-            removals
-        });
+        if (false) {
+            log({
+                identifiers_existing_counts,
+                identifiers_existing,
+                imports_existing,
+                extras,
+                removals
+            });
+        }
         for_each(removals, r => list_remove(ast.body, r));
         let files = await directory_read(directory_root_get());
         let function_names = files.map(f => function_path_to_name(f));
-        let function_name_identifiers = list_intersection(identifiers_existing, function_names);
+        let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
         let missing_imports = missing.map(m => `import { ${ m } } from './${ m }.mjs'`).join(';');
