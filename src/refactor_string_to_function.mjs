@@ -1,5 +1,6 @@
+import { ast_node_type_is } from './ast_node_type_is.mjs';
+import { log } from './log.mjs';
 import { ast_visit } from './ast_visit.mjs';
-import { ast_node_identifier_is } from './ast_node_identifier_is.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
 import { function_new_if_not_exists } from './function_new_if_not_exists.mjs';
@@ -23,7 +24,8 @@ export async function refactor_string_to_function(string_value, function_name) {
             let {ast} = args;
             ast_visit(ast, v => {
                 let {node} = v;
-                if (ast_node_identifier_is(node)) {
+                if (ast_node_type_is(node, 'Literal')) {
+                    console.log(node);
                 }
             });
         });
