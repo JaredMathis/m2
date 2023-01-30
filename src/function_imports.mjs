@@ -20,6 +20,7 @@ export async function function_imports(function_name) {
             missing,
             identifiers_existing
         });
+        console.log(ast.body);
     });
     if (false) {
         log({});
