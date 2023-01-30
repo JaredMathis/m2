@@ -8,7 +8,6 @@ import { list_intersection } from './list_intersection.mjs';
 import { list_difference } from './list_difference.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 import { js_parse } from './js_parse.mjs';
-import { for_each } from './for_each.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
