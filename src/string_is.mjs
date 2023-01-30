@@ -1,3 +1,3 @@
-export function string_is() {
-    
+export function string_is(s) {
+    return typeof s === typeof '';
 }
