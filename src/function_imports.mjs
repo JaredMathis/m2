@@ -6,6 +6,7 @@ import {directory_read} from './directory_read.mjs';
 import { directory_root_get } from './directory_root_get.mjs';
 import { function_path_to_name } from './function_path_to_name.mjs';
 import { list_intersection } from './list_intersection.mjs';
+import { list_difference } from './list_difference.mjs';
 export async function function_imports(function_name) {
     let ast = await function_ast_get(function_name);
     let imports_existing = ast_imports(ast);
