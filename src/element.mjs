@@ -1,6 +1,5 @@
-import { defaults_get } from './defaults_get.mjs';
-import { element_style } from './element_style.mjs';
 import { element_child_add } from './element_child_add.mjs';
+import { element_style_default } from './element_style_default.mjs';
 export function element(parent, tag_name) {
     let e = document.createElement(tag_name);
     let component = element;
@@ -8,6 +7,4 @@ export function element(parent, tag_name) {
     element_child_add(parent, e);
 }
 
-function element_style_default(e, component) {
-    element_style(e, defaults_get(component));
-}
+
