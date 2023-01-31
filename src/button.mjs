@@ -1,3 +1,4 @@
+import { click } from './click.mjs';
 import { element_text } from './element_text.mjs';
 import { element_style_default } from './element_style_default.mjs';
 import { arguments_assert } from './arguments_assert.mjs';
@@ -10,5 +11,6 @@ export function button(parent, text, on_click) {
     let b = element(parent, 'button');
     element_style_default(b, button);
     element_text(b, text);
+    click(b, on_click);
     return b;
 }
