@@ -4,7 +4,10 @@ import { undefined_is } from './undefined_is.mjs';
 import { assert } from './assert.mjs';
 import { for_each_async } from './for_each_async.mjs';
 import { function_path_get } from './function_path_get.mjs';
+import { arguments_assert } from './arguments_assert.mjs';
+import { string_is } from './string_is.mjs';
 export async function function_path_find(function_name) {
+    arguments_assert(arguments, string_is);
     let result;
     await for_each_async(directory_root_get(), async directory_path => {
         let file_path = function_path_get(directory_path, function_name);

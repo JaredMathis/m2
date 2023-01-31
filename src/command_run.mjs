@@ -1,3 +1,4 @@
+Error.stackTraceLimit = Infinity;
 import { function_run } from './function_run.mjs';
 import { log } from './log.mjs';
 export async function command_run() {
