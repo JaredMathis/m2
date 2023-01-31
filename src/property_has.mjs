@@ -1,2 +1,3 @@
-export function property_has() {
+export function property_has(object, property) {
+    return object.hasOwnProperty(property);
 }
