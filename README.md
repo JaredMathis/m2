@@ -32,3 +32,7 @@ log alias console log
 run command
 
 auto whitespace
+
+Examples:
+    refactor_call_to_function hasOwnProperty property_has
+        https://github.com/JaredMathis/m2/commit/9e3b8ede0a0936583309943a01e95b5bfef72fca
