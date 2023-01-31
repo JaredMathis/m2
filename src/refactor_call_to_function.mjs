@@ -25,7 +25,7 @@ export async function refactor_call_to_function(function_call_property_name, fun
                                 let arguments_ = node.arguments;
                                 console.log({ callee });
                                 list_add_front(arguments_, callee.object);
-                                node.callee = js_parse_expression(`function_name`);
+                                node.callee = js_parse_expression(function_name);
                             }
                         }
                     }
