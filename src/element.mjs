@@ -4,6 +4,10 @@ import { element_child_add } from './element_child_add.mjs';
 export function element(parent, tag_name) {
     let e = document.createElement(tag_name);
     let component = element;
-    element_style(e, defaults_get(component));
+    element_style_default(e, component);
     element_child_add(parent, e);
+}
+
+function element_style_default(e, component) {
+    element_style(e, defaults_get(component));
 }
