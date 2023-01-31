@@ -1,2 +1,3 @@
-export function function_is() {
+export function function_is(v) {
+    return typeof v === 'function';
 }
