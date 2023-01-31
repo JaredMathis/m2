@@ -7,8 +7,8 @@ import { index_new } from './index_new.mjs';
 export async function m00_init() {
     await gitignore_node_modules();
     await package_scripts();
+    await run(`npm install webpack webpack-cli --save-dev`);
     await directory_new(directory_source_get());
     await directory_new('public');
     await index_new();
-    await run(`npm install webpack webpack-cli --save-dev`);
 }
