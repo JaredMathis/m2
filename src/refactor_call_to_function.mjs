@@ -24,7 +24,8 @@ export async function refactor_call_to_function(function_call_property_name, fun
                             let {name} = property;
                             if (name === function_call_property_name) {
                                 let arguments_ = node.arguments;
-                                list_add_front(arguments_, callee.object);
+                                let {object} = callee;
+                                list_add_front(arguments_, object);
                                 node.callee = js_parse_expression(function_name);
                                 changed = true;
                             }
