@@ -6,6 +6,9 @@ import { log } from './log.mjs';
 import { function_ast_transform } from './function_ast_transform.mjs';
 export async function refactor_call_to_function(function_call_property_name, function_name) {
     await functions_all_for_each(async fn => {
+        if (fn === function_name) {
+            return;
+        }
         await function_ast_transform(fn, args => {
             let {ast} = args;
             ast_visit(ast, v => {
