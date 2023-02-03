@@ -16,4 +16,10 @@ export async function file_js_folderize(file_path) {
         return;
     }
     let first = list_first(exports);
+    let {declaration} = first;
+    if (!ast_node_type_is(declaration, 'FunctionDeclaration')) {
+        return;
+    }
+    let {id} = declaration;
+    let function_name = id.name;
 }
