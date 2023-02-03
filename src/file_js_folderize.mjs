@@ -1,3 +1,4 @@
+import { log } from './log.mjs';
 import { list_first } from './list_first.mjs';
 import { ast_node_type_is } from './ast_node_type_is.mjs';
 import { for_each } from './for_each.mjs';
@@ -22,4 +23,5 @@ export async function file_js_folderize(file_path) {
     }
     let {id} = declaration;
     let function_name = id.name;
+    log(function_name);
 }
