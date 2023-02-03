@@ -8,7 +8,7 @@ export async function file_js_folderize(file_path) {
     let ast = js_parse(text);
     for_each(ast.body, b => {
         if (ast_node_type_is(b, 'ExportNamedDeclaration')) {
+            console.log(b);
         }
     });
-    console.log(ast);
 }
