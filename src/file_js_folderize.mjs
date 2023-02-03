@@ -12,7 +12,8 @@ export async function file_js_folderize(file_path) {
             exports.push(b);
         }
     });
-    if (exports.length === 1) {
-        let first = list_first(exports);
+    if (exports.length !== 1) {
+        return;
     }
+    let first = list_first(exports);
 }
