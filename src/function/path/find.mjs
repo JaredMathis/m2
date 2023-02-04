@@ -17,8 +17,5 @@ export async function function_path_find(function_name) {
             result = file_path;
         }
     });
-    if (undefined_is(result)) {
-        error('Could not find function ' + function_name);
-    }
     return result;
 }
