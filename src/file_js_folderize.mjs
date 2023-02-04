@@ -5,6 +5,7 @@ import { for_each } from './for_each.mjs';
 import { js_parse } from './js_parse.mjs';
 import { file_read } from './file_read.mjs';
 import { function_path_get } from './function_path_get.mjs';
+import { file_rename } from './file/rename.mjs';
 export async function file_js_folderize(file_path, output_path) {
     let exports = [];
     let ast;
@@ -31,5 +32,5 @@ export async function file_js_folderize(file_path, output_path) {
     let {id} = declaration;
     let function_name = id.name;
     let function_path_new = function_path_get(output_path, function_name);
-    log(function_path_new);
+    await file_rename(file_path, function_path_new)
 }
