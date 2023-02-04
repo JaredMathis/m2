@@ -33,15 +33,6 @@ export async function function_imports(function_name) {
                 removals.push(import_statement.node);
             }
         });
-        if (false) {
-            log({
-                identifiers_existing_counts,
-                identifiers_existing,
-                imports_existing,
-                extras,
-                removals
-            });
-        }
         for_each(removals, r => list_remove(ast.body, r));
         let function_names = await functions_all_get();
         let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
