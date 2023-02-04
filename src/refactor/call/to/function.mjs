@@ -12,9 +12,7 @@ export async function refactor_call_to_function(function_call_property_name, fun
             return;
         }
         let changed = false;
-        await function_ast_transform(fn, args => {
-            let {ast} = args;
-            ast_visit(ast, v => {
+        await function_ast_transform_visit(fn, v => {
                 let {node} = v;
                 if (ast_node_type_is(node, 'CallExpression')) {
                     let {callee} = node;
@@ -32,7 +30,6 @@ export async function refactor_call_to_function(function_call_property_name, fun
                         }
                     }
                 }
-            });
         });
         if (changed) {
             await function_imports(fn);
