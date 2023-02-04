@@ -17,7 +17,7 @@ import { function_path_find } from './function_path_find.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
-        let imports_existing = ast_imports(ast);
+        let imports_existing = await ast_imports(ast);
         let identifiers_existing_counts = ast_identifiers(ast);
         let identifiers_existing_all = keys(identifiers_existing_counts);
         let identifiers_existing = [];
