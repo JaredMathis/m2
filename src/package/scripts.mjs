@@ -12,7 +12,7 @@ export async function package_scripts() {
         ]) }`;
         p.scripts.mg = `node ${ path_join([
             m00_directory_root,
-            `command_git.mjs`
+            `commandgit.mjs`
         ]) }`;
     });
 }
