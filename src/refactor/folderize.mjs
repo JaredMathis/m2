@@ -9,8 +9,7 @@ export async function refactor_folderize() {
     let directory_source = directory_source_get();
     let file_paths = await directory_read(directory_source);
     await for_each_async(file_paths, async file_path => {
-        let function_path_new = await file_js_folderize(file_path, directory_source);
-        let function_name = function_path_to_name(function_path_new);
-        await functions_all_for_each(function_imports(function_name));
+        await file_js_folderize(file_path, directory_source);
+        await functions_all_for_each(fn => function_imports(fn));
     });
 }
