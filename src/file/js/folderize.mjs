@@ -1,3 +1,5 @@
+import { functions_all_for_each } from './../../functions/all/for/each.mjs';
+import { function_imports } from './../../function/imports.mjs';
 import { log } from './../../log.mjs';
 import { list_first } from './../../list/first.mjs';
 import { ast_node_type_is } from './../../ast/node/type/is.mjs';
