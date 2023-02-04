@@ -15,7 +15,7 @@ export async function file_js_folderize(file_path, output_path) {
         let text = await file_read(file_path);
         ast = js_parse(text);
     } catch (e) {
-        console.log('Error parsing ' + file_path);
+        log('Error parsing ' + file_path);
         throw e;
     }
     for_each(ast.body, b => {
