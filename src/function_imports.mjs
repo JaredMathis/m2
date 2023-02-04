@@ -28,7 +28,7 @@ export async function function_imports(function_name) {
         });
         let extras = list_difference(imports_existing, identifiers_existing);
         let removals = [];
-        ast_imports_for_each(ast, import_statement => {
+        await ast_imports_for_each(ast, import_statement => {
             if (extras.includes(import_statement.name)) {
                 removals.push(import_statement.node);
             }
@@ -53,7 +53,7 @@ export async function function_imports(function_name) {
         let parsed = js_parse(missing_imports);
         list_concat_front(ast.body, parsed.body);
         let function_file_path = await function_path_find(function_name);
-        ast_imports_for_each(ast, import_statement => {
+        await ast_imports_for_each(ast, async import_statement => {
             let imported_file_path = await function_path_find(import_statement.name);
             let relative_file_path = path.relative(function_file_path, imported_file_path);
             import_statement.source.value = './' + relative_file_path;
