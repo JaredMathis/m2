@@ -12,6 +12,8 @@ import { list_add } from './list_add.mjs';
 import { ast_imports_for_each } from './ast_imports_for_each.mjs';
 import { keys } from './keys.mjs';
 import { functions_all_get } from './functions_all_get.mjs';
+import path from 'path';
+import { function_path_find } from './function_path_find.mjs';
 export async function function_imports(function_name) {
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
@@ -45,8 +47,11 @@ export async function function_imports(function_name) {
         let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
+        let function_file_path = await function_path_find(function_name);
         let missing_imports = missing.map(m => {
-            return `import { ${ m } } from './${ m }.mjs'`;
+            let imported_file_path = await function_path_find(function_name);
+            let relative_file_path = path.relative(function_file_path, imported_file_path);
+            return `import { ${ m } } from './${ relative_file_path }.mjs'`;
         }).join(';');
         let parsed = js_parse(missing_imports);
         list_concat_front(ast.body, parsed.body);
