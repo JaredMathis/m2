@@ -32,5 +32,6 @@ export async function file_js_folderize(file_path, output_path) {
     let {id} = declaration;
     let function_name = id.name;
     let function_path_new = function_path_get(output_path, function_name);
+    
     await file_rename(file_path, function_path_new)
 }
