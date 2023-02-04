@@ -9,6 +9,8 @@ export async function m00_init() {
     await package_scripts();
     await run(`npm install webpack webpack-cli --save-dev`);
     await file_directory_create_if_not_exists(directory_source_get());
-    await file_directory_create_if_not_exists('public');
-    await index_new();
+    if (false) {
+        await file_directory_create_if_not_exists('public');
+        await index_new();
+    }
 }
