@@ -1,3 +1,4 @@
+import { file_rename } from './../rename.mjs';
 import { log } from './../../log.mjs';
 import { list_first } from './../../list/first.mjs';
 import { ast_node_type_is } from './../../ast/node/type/is.mjs';
@@ -31,5 +32,6 @@ export async function file_js_folderize(file_path, output_path) {
     let {id} = declaration;
     let function_name = id.name;
     let function_path_new = function_path_get(output_path, function_name);
+    await file_rename(file_path, function_path_new);
     return function_path_new;
 }
