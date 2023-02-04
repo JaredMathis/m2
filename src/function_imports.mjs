@@ -47,13 +47,17 @@ export async function function_imports(function_name) {
         let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
-        let function_file_path = await function_path_find(function_name);
         let missing_imports = missing.map(m => {
-            let imported_file_path = await function_path_find(function_name);
-            let relative_file_path = path.relative(function_file_path, imported_file_path);
-            return `import { ${ m } } from './${ relative_file_path }.mjs'`;
+            return `import { ${ m } } from './${ m }.mjs'`;
         }).join(';');
         let parsed = js_parse(missing_imports);
         list_concat_front(ast.body, parsed.body);
+        let function_file_path = await function_path_find(function_name);
+        ast_imports_for_each(ast, import_statement => {
+            // let imported_file_path = await function_path_find(function_name);
+            // let relative_file_path = path.relative(function_file_path, imported_file_path);
+            // if (import_statement.)
+            console.log(import_statement)
+        });
     });
 }
