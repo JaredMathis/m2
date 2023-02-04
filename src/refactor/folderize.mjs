@@ -7,6 +7,6 @@ export async function refactor_folderize() {
     let directory_source = directory_source_get();
     let file_paths = await directory_read(directory_source);
     for_each(file_paths, async file_path => {
-        file_js_folderize(file_path, directory_source);
+        await file_js_folderize(file_path, directory_source);
     })
 }
