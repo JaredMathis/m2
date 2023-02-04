@@ -44,6 +44,7 @@ export async function function_imports(function_name) {
         }
         for_each(removals, r => list_remove(ast.body, r));
         let function_names = await functions_all_get();
+        console.log({function_names})
         let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
         let missing = list_difference(without_me, imports_existing);
