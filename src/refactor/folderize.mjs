@@ -5,7 +5,8 @@ import { directory_source_get } from './../directory/source/get.mjs';
 export async function refactor_folderize() {
     let directory_source = directory_source_get();
     let file_paths = await directory_read(directory_source);
-    await for_each_async(file_paths, async function directory_source_for_each (file_path) {
+    await for_each_async(file_paths, directory_source_for_each);
+    async function directory_source_for_each(file_path) {
         await file_js_folderize_imports(file_path, directory_source);
-    });
+    }
 }
