@@ -7,8 +7,14 @@ import { file_read } from './file_read.mjs';
 import { function_path_get } from './function_path_get.mjs';
 export async function file_js_folderize(file_path, output_path) {
     let exports = [];
-    let text = await file_read(file_path);
-    let ast = js_parse(text);
+    let ast;
+    try {
+        let text = await file_read(file_path);
+        ast = js_parse(text);
+    } catch (e) {
+        console.log('Error parsing ' + file_path);
+        throw e;
+    }
     for_each(ast.body, b => {
         if (ast_node_type_is(b, 'ExportNamedDeclaration')) {
             exports.push(b);
