@@ -4,5 +4,6 @@ import { file_write } from './../../file/write.mjs';
 export async function function_ast_set(function_name, ast) {
     let file_path = await function_path_find(function_name);
     let code = js_unparse(ast);
+    console.log(code, file_path);
     await file_write(file_path, code);
 }

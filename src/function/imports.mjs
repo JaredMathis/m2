@@ -15,7 +15,6 @@ import { functions_all_get } from './../functions/all/get.mjs';
 import path from 'path';
 import { function_path_find } from './path/find.mjs';
 export async function function_imports(function_name) {
-    log(function_name);
     await function_ast_transform(function_name, async function transform(args) {
         let {ast} = args;
         let imports_existing = await ast_imports(ast);
