@@ -33,7 +33,7 @@ export async function function_imports(function_name) {
                 removals.push(import_statement.node);
             }
         });
-        if (true) {
+        if (false) {
             log({
                 identifiers_existing_counts,
                 identifiers_existing,
