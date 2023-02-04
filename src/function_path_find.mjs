@@ -6,6 +6,7 @@ import { for_each_async } from './for_each_async.mjs';
 import { function_path_get } from './function_path_get.mjs';
 import { arguments_assert } from './arguments_assert.mjs';
 import { string_is } from './string_is.mjs';
+import { error } from './error.mjs';
 export async function function_path_find(function_name) {
     arguments_assert(arguments, string_is);
     let result;
@@ -16,5 +17,8 @@ export async function function_path_find(function_name) {
             result = file_path;
         }
     });
+    if (undefined_is(result)) {
+        error('Could not find function ' + function_name);
+    }
     return result;
 }
