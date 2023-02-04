@@ -56,7 +56,7 @@ export async function function_imports(function_name) {
         await ast_imports_for_each(ast, async import_statement => {
             let imported_file_path = await function_path_find(import_statement.name);
             let relative_file_path = path.relative(function_file_path, imported_file_path);
-            import_statement.node.source.value = './' + relative_file_path.replaceAll('\\', '/');
+            import_statement.node.source.value = relative_file_path.slice(1).replaceAll('\\', '/');
         });
     });
 }
