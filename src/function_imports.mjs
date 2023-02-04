@@ -54,10 +54,9 @@ export async function function_imports(function_name) {
         list_concat_front(ast.body, parsed.body);
         let function_file_path = await function_path_find(function_name);
         ast_imports_for_each(ast, import_statement => {
-            // let imported_file_path = await function_path_find(function_name);
-            // let relative_file_path = path.relative(function_file_path, imported_file_path);
-            // if (import_statement.)
-            console.log(import_statement)
+            let imported_file_path = await function_path_find(import_statement.name);
+            let relative_file_path = path.relative(function_file_path, imported_file_path);
+            import_statement.source.value = './' + relative_file_path;
         });
     });
 }
