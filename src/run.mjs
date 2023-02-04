@@ -1,3 +1,4 @@
+import { error } from './error.mjs';
 import { exec } from 'child_process';
 export function run(cmd, options) {
     return new Promise((resolve, reject) => {

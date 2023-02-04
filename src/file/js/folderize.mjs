@@ -1,10 +1,10 @@
 import { log } from './../../log.mjs';
-import { list_first } from './../../list_first.mjs';
-import { ast_node_type_is } from './../../ast_node_type_is.mjs';
-import { for_each } from './../../for_each.mjs';
-import { js_parse } from './../../js_parse.mjs';
-import { file_read } from './../../file_read.mjs';
-import { function_path_get } from './../../function_path_get.mjs';
+import { list_first } from './../../list/first.mjs';
+import { ast_node_type_is } from './../../ast/node/type/is.mjs';
+import { for_each } from './../../for/each.mjs';
+import { js_parse } from './../../js/parse.mjs';
+import { file_read } from './../read.mjs';
+import { function_path_get } from './../../function/path/get.mjs';
 import { file_rename } from './../rename.mjs';
 export async function file_js_folderize(file_path, output_path) {
     let exports = [];

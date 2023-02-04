@@ -1,4 +1,4 @@
-import { for_each } from './for_each.mjs';
+import { for_each } from './for/each.mjs';
 export function visit(item, valid_child, for_each_child) {
     for_each(item, node => {
         if (!valid_child(node)) {

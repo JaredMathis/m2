@@ -1,2 +1,2 @@
-import { command_run } from './command_run.mjs';
+import { command_run } from './command/run.mjs';
 command_run();

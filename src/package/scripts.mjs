@@ -1,0 +1,18 @@
+import { property_initialize } from './../property/initialize.mjs';
+import { package_transform } from './transform.mjs';
+import { m00_directory_root_get } from './../m00/directory/root/get.mjs';
+import { path_join } from './../path/join.mjs';
+export async function package_scripts() {
+    await package_transform(p => {
+        property_initialize(p, 'scripts', {});
+        let m00_directory_root = m00_directory_root_get();
+        p.scripts.m = `node ${ path_join([
+            m00_directory_root,
+            `command.mjs`
+        ]) }`;
+        p.scripts.mg = `node ${ path_join([
+            m00_directory_root,
+            `command_git.mjs`
+        ]) }`;
+    });
+}
