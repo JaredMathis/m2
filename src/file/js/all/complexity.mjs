@@ -12,6 +12,6 @@ export async function file_js_all_complexity() {
             size
         });
     });
-    result.sort((a, b) => b.size - a.size)
+    result.sort((a, b) => b.size - a.size);
     log(result);
 }
