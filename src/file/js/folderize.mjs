@@ -33,4 +33,5 @@ export async function file_js_folderize(file_path, output_path) {
     let function_name = id.name;
     let function_path_new = function_path_get(output_path, function_name).replaceAll('_', '/');
     await file_rename(file_path, function_path_new);
+    return function_path_new;
 }
