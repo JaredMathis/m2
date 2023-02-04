@@ -5,7 +5,9 @@ export function function_path_get(directory_path, function_name) {
     arguments_assert(arguments, string_is, string_is);
     let result = path_join([
         directory_path,
-        `${ function_name.replaceAll('_', '/') }.mjs`
+        `${ function_name
+            //.replaceAll('_', '/')
+         }.mjs`
     ]);
     return result;
 }
