@@ -7,9 +7,9 @@ import { file_directory_create_if_not_exists } from '../file/directory/create/if
 export async function m00_init() {
     await gitignore_node_modules();
     await package_scripts();
-    await run(`npm install webpack webpack-cli --save-dev`);
     await file_directory_create_if_not_exists(directory_source_get());
     if (false) {
+        await run(`npm install webpack webpack-cli --save-dev`);
         await file_directory_create_if_not_exists('public');
         await index_new();
     }
