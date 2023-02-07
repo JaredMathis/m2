@@ -14,6 +14,8 @@ export async function package_scripts() {
             m00_directory_root,
             `commandgit.mjs`
         ]) }`;
-        p.scripts.mi = `npm i m00@latest`;
+        p.scripts.mil = `npm i m00@latest`;
+        p.scripts.mi = `npm run mil && npm run m`;
+        p.scripts.mig = `npm run mil && npm run mg`;
     });
 }
