@@ -17,6 +17,6 @@ export async function package_scripts() {
         p.scripts.mil = `npm i m00@latest`;
         p.scripts.mi = `npm run mil && npm run m`;
         p.scripts.mig = `npm run mil && npm run mg`;
-        p.scripts.dev = `npx http-server && npx webpack --mode development --watch`;
+        p.scripts.dev = `npx webpack --mode development && --watch npx http-server`;
     });
 }
