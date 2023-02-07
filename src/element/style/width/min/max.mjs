@@ -6,6 +6,6 @@ export function element_style_width_min_max(e, value) {
     arguments_assert(arguments, defined_is, string_is);
     element_style(e, {
         minWidth: value,
-        maxWith: value
+        maxWidth: value
     });
 }
