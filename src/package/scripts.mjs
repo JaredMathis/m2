@@ -14,5 +14,6 @@ export async function package_scripts() {
             m00_directory_root,
             `commandgit.mjs`
         ]) }`;
+        p.scripts.mi = `npm i m00@latest`;
     });
 }
