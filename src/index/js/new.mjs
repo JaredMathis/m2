@@ -6,7 +6,7 @@ export async function index_js_new() {
         directory_source_get(),
         `index.js`
     ]), `
-import main from './main.mjs';
+import {main} from './main.mjs';
 main();
 `);
 }
