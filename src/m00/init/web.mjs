@@ -11,5 +11,5 @@ export async function m00_init_web() {
     await index_html_new();
     await index_js_new();
     await function_auto('main');
-    await run(`npx webpack --development`);
+    await run(`npx webpack --mode development`);
 }
