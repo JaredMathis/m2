@@ -5,7 +5,7 @@
     "recursive-readdir": "^2.2.3"
   },
   "name": "m00",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "scripts": {
     "m": "node src/command.mjs",
     "mg": "node src/commandgit.mjs"
