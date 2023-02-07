@@ -4,7 +4,7 @@ export async function index_new() {
 <html>
     <head></head>
     <body>
-        <script type="module"></script>
+        <script type="module" src="main.js"></script>
     </body>
 </html>
 `);
