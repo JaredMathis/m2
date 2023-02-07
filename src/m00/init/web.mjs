@@ -6,7 +6,7 @@ import { run } from './../../run.mjs';
 import { directory_create_if_not_exists } from './../../directory/create/if/not/exists.mjs';
 export async function m00_init_web() {
     await m00_init();
-    await run(`npm install webpack webpack-cli http-server --save-dev`);
+    await run(`npm install webpack webpack-cli serve --save-dev`);
     await directory_create_if_not_exists('dist');
     await index_html_new();
     await index_js_new();
