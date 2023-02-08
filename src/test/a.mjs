@@ -1,6 +1,7 @@
 export function test_a() {
     return test_e();
 }
+
 function test_e() {
     return test_b() + test_c() + test_d();
 }
