@@ -33,7 +33,7 @@ export async function function_imports(function_name) {
                 removals.push(import_statement.node);
             }
         });
-        for_each(removals, r => list_remove(ast.body, r));
+        list_remove_all(ast.body, removals);
         let function_names = await functions_all_get();
         let function_name_identifiers = list_intersection(identifiers_existing_all, function_names);
         let without_me = list_difference(function_name_identifiers, [function_name]);
@@ -50,4 +50,8 @@ export async function function_imports(function_name) {
             import_statement.node.source.value = relative_file_path.substring(1).replaceAll('\\', '/');
         });
     });
+}
+
+function list_remove_all(list, removals) {
+    for_each(removals, r => list_remove(list, r));
 }
