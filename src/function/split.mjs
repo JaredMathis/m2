@@ -18,7 +18,11 @@ export async function function_split(function_name) {
                 let export_ = list_single(exports);
                 export_.declaration = fd;
             });
+        });
+        await for_each_async(function_declarations, async fd => {
+            const fd_name = fd.id.name;
             await function_imports(fd_name);
         });
     });
+    await function_imports(function_name);
 }
