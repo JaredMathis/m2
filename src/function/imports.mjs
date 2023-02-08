@@ -1,4 +1,4 @@
-import { log } from './../log.mjs';
+import { list_remove_all } from './../list/remove/all.mjs';
 import { ast_identifiers } from './../ast/identifiers.mjs';
 import { ast_imports } from './../ast/imports.mjs';
 import { list_intersection } from './../list/intersection.mjs';
@@ -7,7 +7,6 @@ import { function_ast_transform } from './ast/transform.mjs';
 import { js_parse } from './../js/parse.mjs';
 import { list_concat_front } from './../list/concat/front.mjs';
 import { for_each } from './../for/each.mjs';
-import { list_remove } from './../list/remove.mjs';
 import { list_add } from './../list/add.mjs';
 import { ast_imports_for_each } from './../ast/imports/for/each.mjs';
 import { keys } from './../keys.mjs';
@@ -50,8 +49,4 @@ export async function function_imports(function_name) {
             import_statement.node.source.value = relative_file_path.substring(1).replaceAll('\\', '/');
         });
     });
-}
-
-function list_remove_all(list, removals) {
-    for_each(removals, r => list_remove(list, r));
 }
