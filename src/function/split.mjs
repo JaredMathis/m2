@@ -7,6 +7,7 @@ import { function_ast_transform } from './ast/transform.mjs';
 import { for_each_async } from './../for/each/async.mjs';
 import { for_each } from '../for/each.mjs';
 import { list_remove } from '../list/remove.mjs';
+import { list_remove_all } from '../list/remove/all.mjs';
 export async function function_split(function_name) {
     await function_ast_transform(function_name, async args => {
         let {ast} = args;
@@ -25,7 +26,7 @@ export async function function_split(function_name) {
             const fd_name = fd.id.name;
             await function_imports(fd_name);
         });
-        for_each(function_declarations, fd => list_remove(ast.body, fd));
+        list_remove_all(ast.body, function_declarations);
     });
     await function_imports(function_name);
 }
