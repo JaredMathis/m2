@@ -10,7 +10,7 @@ import { error } from './../../error.mjs';
 export async function function_path_find(function_name) {
     arguments_assert(arguments, string_is);
     let result;
-    await for_each_async(directory_root_get(), async directory_path => {
+    await for_each_async(await directory_root_get(), async directory_path => {
         let file_path = function_path_get(directory_path, function_name);
         if (await file_exists(file_path)) {
             assert(undefined_is(result));
